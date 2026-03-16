@@ -1,0 +1,24 @@
+# OpenClaw workspace ignore rules
+
+# Sensitive data (DO NOT commit)
+.openclaw/
+*.env
+*credentials*
+*secret*
+*token*
+
+# Temporary files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Node modules (if any)
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Keep learnings tracked (uncomment to ignore)
+# .learnings/
