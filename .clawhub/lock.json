@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "skills": {
+    "github-issue-resolver": {
+      "version": "1.0.0",
+      "installedAt": 1773712768909
+    },
+    "design-to-code": {
+      "version": "1.0.0",
+      "installedAt": 1773712849429
+    },
+    "docker-essentials": {
+      "version": "1.0.0",
+      "installedAt": 1773713063993
+    },
+    "trading": {
+      "version": "1.0.1",
+      "installedAt": 1773713206631
+    },
+    "quant-trading-system": {
+      "version": "6.0.0",
+      "installedAt": 1773713216133
+    },
+    "agent-browser-clawdbot": {
+      "version": "0.1.0",
+      "installedAt": 1773714352123
+    },
+    "ppt-generator": {
+      "version": "1.0.0",
+      "installedAt": 1773714358778
+    },
+    "finnhub": {
+      "version": "1.0.0",
+      "installedAt": 1773714369227
+    },
+    "remotion-video-toolkit": {
+      "version": "1.4.0",
+      "installedAt": 1773714381622
+    },
+    "product-manager": {
+      "version": "1.0.0",
+      "installedAt": 1773714392068
+    },
+    "data-analyst": {
+      "version": "1.0.0",
+      "installedAt": 1773714406349
+    }
+  }
+}
