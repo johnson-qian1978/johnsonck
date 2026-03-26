@@ -1,0 +1,57 @@
+/* CJCMS Theme Styles */
+
+[data-theme="theme1"] {
+    --primary-color: #1890ff;
+    --sidebar-bg: #001529;
+    --sidebar-text: rgba(255,255,255,0.65);
+    --header-bg: #ffffff;
+    --body-bg: #f0f2f5;
+}
+
+[data-theme="theme2"] {
+    --primary-color: #6200ee;
+    --sidebar-bg: #1a237e;
+    --sidebar-text: rgba(255,255,255,0.7);
+    --header-bg: #ffffff;
+    --body-bg: #f5f5f5;
+}
+
+[data-theme="theme3"] {
+    --primary-color: #0052d9;
+    --sidebar-bg: #001f3f;
+    --sidebar-text: rgba(255,255,255,0.6);
+    --header-bg: #ffffff;
+    --body-bg: #ebf0f5;
+}
+
+[data-theme="theme4"] {
+    --primary-color: #00a870;
+    --sidebar-bg: #003d33;
+    --sidebar-text: rgba(255,255,255,0.65);
+    --header-bg: #ffffff;
+    --body-bg: #f6ffed;
+}
+
+[data-theme="theme5"] {
+    --primary-color: #d4af37;
+    --sidebar-bg: #1a1a1a;
+    --sidebar-text: rgba(255,255,255,0.65);
+    --header-bg: #ffffff;
+    --body-bg: #fafafa;
+}
+
+.sidebar { background-color: var(--sidebar-bg) !important; }
+.sidebar .el-menu { background-color: var(--sidebar-bg) !important; }
+.header { background-color: var(--header-bg) !important; }
+.content { background-color: var(--body-bg) !important; }
+.stat-number { color: var(--primary-color) !important; }
+.welcome-card { background: linear-gradient(135deg, var(--primary-color), var(--sidebar-bg)) !important; color: #fff !important; }
+
+.theme-option { width: 20px; height: 20px; border-radius: 50%; cursor: pointer; border: 2px solid transparent; transition: all 0.3s; }
+.theme-option:hover { transform: scale(1.1); }
+.theme-option.active { border-color: var(--primary-color); }
+.theme-option[data-theme="theme1"] { background: linear-gradient(135deg, #1890ff 50%, #001529 50%); }
+.theme-option[data-theme="theme2"] { background: linear-gradient(135deg, #6200ee 50%, #1a237e 50%); }
+.theme-option[data-theme="theme3"] { background: linear-gradient(135deg, #0052d9 50%, #001f3f 50%); }
+.theme-option[data-theme="theme4"] { background: linear-gradient(135deg, #00a870 50%, #003d33 50%); }
+.theme-option[data-theme="theme5"] { background: linear-gradient(135deg, #d4af37 50%, #1a1a1a 50%); }

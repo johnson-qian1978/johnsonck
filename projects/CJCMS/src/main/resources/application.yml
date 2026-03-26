@@ -1,0 +1,68 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: cjcms-web
+  
+  # Oracle Database Configuration
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521/ORCL
+    username: CJCMS
+    password: "1"
+    driver-class-name: oracle.jdbc.OracleDriver
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      idle-timeout: 30000
+      pool-name: CJCmsHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+  
+  # H2 Database Configuration (commented out)
+  # datasource:
+  #   url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+  #   driver-class-name: org.h2.Driver
+  #   username: sa
+  #   password: 
+  # h2:
+  #   console:
+  #     enabled: true
+  #     path: /h2-console
+  
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+  
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    jdbc-type-for-null: 'NULL'
+  global-config:
+    db-config:
+      id-type: assign_uuid
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  mapper-locations: classpath*:/mapper/**/*.xml
+
+# JWT 配置
+jwt:
+  secret: cjcms-secret-key-for-jwt-token-generation-must-be-long-enough
+  expiration: 7200000  # 2 hours in milliseconds
+  refresh-expiration: 604800000  # 7 days in milliseconds
+  header: Authorization
+  prefix: Bearer 
+
+# 日志配置
+logging:
+  level:
+    root: INFO
+    com.cjcms: DEBUG
+    org.springframework.security: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"

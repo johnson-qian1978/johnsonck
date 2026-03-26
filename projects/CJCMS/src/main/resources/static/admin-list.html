@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理员管理 - 长江 CMS</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-plus/dist/index.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', Arial, sans-serif; background-color: var(--body-bg, #f0f2f5); }
+        .admin-layout { display: flex; height: 100vh; }
+        .sidebar { width: 240px; background: var(--sidebar-bg, #001529); color: white; overflow-y: auto; }
+        .sidebar-header { height: 60px; display: flex; align-items: center; justify-content: center; background: #002140; color: white; font-size: 20px; font-weight: bold; }
+        .el-menu { border-right: none !important; background: var(--sidebar-bg, #001529) !important; }
+        .el-menu-item, .el-sub-menu__title { color: var(--sidebar-text, rgba(255,255,255,0.65)) !important; }
+        .el-menu-item:hover, .el-sub-menu__title:hover { background-color: rgba(255,255,255,0.1) !important; color: white !important; }
+        .el-menu-item.is-active { background-color: var(--primary-color, #1890ff) !important; color: white !important; }
+        .main-content { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+        .header { height: 60px; background: var(--header-bg, #ffffff); box-shadow: 0 1px 4px rgba(0,21,41,0.08); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; }
+        .page-container { flex: 1; padding: 20px; overflow-y: auto; }
+        .search-bar { background: #fff; padding: 20px; border-radius: 4px; margin-bottom: 20px; }
+        .data-table { background: #fff; border-radius: 4px; overflow: hidden; }
+        .avatar-cell { display: flex; align-items: center; justify-content: center; }
+        .user-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--primary-color, #1890ff); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 16px; }
+        .username-text { color: var(--primary-color, #1890ff); font-weight: 500; }
+        .role-tag { margin-right: 5px; }
+        .action-buttons { display: flex; gap: 5px; }
+        .theme-selector { display: flex; align-items: center; gap: 8px; margin-right: 15px; padding: 8px 15px; background: rgba(0,0,0,0.05); border-radius: 25px; }
+        .theme-label { font-size: 13px; color: #666; font-weight: bold; }
+        .theme-btn { width: 28px; height: 28px; border-radius: 50%; cursor: pointer; border: 2px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); transition: transform 0.2s; }
+        .theme-btn:hover { transform: scale(1.2); }
+        .theme-btn[data-theme="theme1"] { background: linear-gradient(135deg, #1890ff 50%, #001529 50%); }
+        .theme-btn[data-theme="theme2"] { background: linear-gradient(135deg, #6200ee 50%, #1a237e 50%); }
+        .theme-btn[data-theme="theme3"] { background: linear-gradient(135deg, #0052d9 50%, #001f3f 50%); }
+        .theme-btn[data-theme="theme4"] { background: linear-gradient(135deg, #00a870 50%, #003d33 50%); }
+        .theme-btn[data-theme="theme5"] { background: linear-gradient(135deg, #d4af37 50%, #1a1a1a 50%); }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="admin-layout">
+            <!-- 左侧菜单 -->
+            <div class="sidebar">
+                <div class="sidebar-header">🌊 长江 CMS</div>
+                <el-menu :default-active="activeMenu" mode="vertical" router>
+                    <el-sub-menu index="system">
+                        <template #title><el-icon><Setting/></el-icon><span>系统管理</span></template>
+                        <el-menu-item index="/admin/create"><el-icon><Plus/></el-icon>创建新站点</el-menu-item>
+                        <el-menu-item index="/admin/sites"><el-icon><Grid/></el-icon>站群管理</el-menu-item>
+                    </el-sub-menu>
+                    <el-sub-menu index="admin-mgr">
+                        <template #title><el-icon><User/></el-icon><span>管理员管理</span></template>
+                        <el-menu-item index="/admin/list">管理员列表</el-menu-item>
+                        <el-menu-item index="/admin/roles">角色管理</el-menu-item>
+                        <el-menu-item index="/admin/api-keys">API 密钥管理</el-menu-item>
+                        <el-menu-item index="/admin/settings">管理员设置</el-menu-item>
+                    </el-sub-menu>
+                    <el-sub-menu index="user-mgr">
+                        <template #title><el-icon><Users/></el-icon><span>用户管理</span></template>
+                        <el-menu-item index="/user/list">用户列表</el-menu-item>
+                        <el-menu-item index="/user/groups">用户组管理</el-menu-item>
+                    </el-sub-menu>
+                    <el-menu-item index="/stats"><el-icon><DataAnalysis/></el-icon><span>统计图表</span></el-menu-item>
+                    <el-menu-item index="/logs"><el-icon><Document/></el-icon><span>运行日志</span></el-menu-item>
+                    <el-menu-item index="/tools"><el-icon><Tools/></el-icon><span>实用工具</span></el-menu-item>
+                </el-menu>
+            </div>
+
+            <!-- 右侧内容区 -->
+            <div class="main-content">
+                <!-- 顶部导航栏 -->
+                <div class="header">
+                    <div class="header-left">
+                        <el-breadcrumb separator="/">
+                            <el-breadcrumb-item>系统管理</el-breadcrumb-item>
+                            <el-breadcrumb-item>管理员管理</el-breadcrumb-item>
+                            <el-breadcrumb-item>管理员列表</el-breadcrumb-item>
+                        </el-breadcrumb>
+                    </div>
+                    <div class="header-right">
+                        <div class="theme-selector">
+                            <span class="theme-label">主题:</span>
+                            <div class="theme-btn" data-theme="theme1" title="阿里蓝" @click="switchTheme('theme1')"></div>
+                            <div class="theme-btn" data-theme="theme2" title="Material 紫" @click="switchTheme('theme2')"></div>
+                            <div class="theme-btn" data-theme="theme3" title="腾讯深蓝" @click="switchTheme('theme3')"></div>
+                            <div class="theme-btn" data-theme="theme4" title="清新绿" @click="switchTheme('theme4')"></div>
+                            <div class="theme-btn" data-theme="theme5" title="经典黑金" @click="switchTheme('theme5')"></div>
+                        </div>
+                        <el-badge :value="3" class="item">
+                            <el-button type="text"><el-icon><Bell/></el-icon></el-button>
+                        </el-badge>
+                        <div class="user-info" style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                            <div class="user-avatar">{{ userInitial }}</div>
+                            <span>{{ currentUser.realName || currentUser.username }}</span>
+                        </div>
+                        <el-button type="danger" size="small" @click="handleLogout">退出</el-button>
+                    </div>
+                </div>
+
+                <!-- 页面内容 -->
+                <div class="page-container">
+                    <!-- 搜索栏 -->
+                    <div class="search-bar">
+                        <el-form :inline="true" :model="searchForm" class="search-form">
+                            <el-form-item label="角色">
+                                <el-select v-model="searchForm.roleId" placeholder="全部角色" clearable style="width: 150px;">
+                                    <el-option label="超级管理员" value="role001"></el-option>
+                                    <el-option label="站点管理员" value="role002"></el-option>
+                                    <el-option label="内容编辑" value="role003"></el-option>
+                                </el-select>
+                            </el-form-item>
+                            <el-form-item label="排序">
+                                <el-select v-model="searchForm.sortBy" placeholder="默认" clearable style="width: 120px;">
+                                    <el-option label="按账号" value="username"></el-option>
+                                    <el-option label="按姓名" value="realName"></el-option>
+                                    <el-option label="按最后登录" value="lastLoginTime"></el-option>
+                                    <el-option label="按登录次数" value="loginCount"></el-option>
+                                </el-select>
+                            </el-form-item>
+                            <el-form-item label="最后登录">
+                                <el-date-picker v-model="searchForm.lastLoginAfter" type="datetime" placeholder="选择时间" value-format="YYYY-MM-DD HH:mm:ss" style="width: 180px;"></el-date-picker>
+                            </el-form-item>
+                            <el-form-item label="关键字">
+                                <el-input v-model="searchForm.keyword" placeholder="账号/姓名/手机" clearable style="width: 180px;"></el-input>
+                            </el-form-item>
+                            <el-form-item>
+                                <el-button type="primary" icon="Search" @click="handleSearch">查询</el-button>
+                                <el-button icon="Refresh" @click="handleReset">重置</el-button>
+                            </el-form-item>
+                        </el-form>
+                    </div>
+
+                    <!-- 数据表格 -->
+                    <div class="data-table">
+                        <el-table :data="adminList" style="width: 100%" v-loading="loading" stripe>
+                            <el-table-column prop="avatar" label="头像" width="80" align="center">
+                                <template #default="{ row }">
+                                    <div class="avatar-cell">
+                                        <div class="user-avatar">{{ getAvatarInitial(row) }}</div>
+                                    </div>
+                                </template>
+                            </el-table-column>
+                            <el-table-column prop="username" label="账号" width="150">
+                                <template #default="{ row }">
+                                    <span class="username-text">{{ row.username }}</span>
+                                </template>
+                            </el-table-column>
+                            <el-table-column prop="realName" label="姓名" width="120"></el-table-column>
+                            <el-table-column prop="mobile" label="手机" width="130"></el-table-column>
+                            <el-table-column prop="lastLoginTime" label="最后登录" width="180">
+                                <template #default="{ row }">
+                                    {{ formatDateTime(row.lastLoginTime) }}
+                                </template>
+                            </el-table-column>
+                            <el-table-column prop="loginCount" label="登录次数" width="100" align="center"></el-table-column>
+                            <el-table-column label="角色" min-width="150">
+                                <template #default="{ row }">
+                                    <el-tag v-for="role in row.roles" :key="role.id" :type="getRoleType(role.name)" size="small" class="role-tag">{{ role.name }}</el-tag>
+                                </template>
+                            </el-table-column>
+                            <el-table-column label="操作" width="320" fixed="right">
+                                <template #default="{ row }">
+                                    <div class="action-buttons">
+                                        <el-button size="small" @click="handleEdit(row)">编辑</el-button>
+                                        <el-button size="small" @click="handleChangePassword(row)">更改密码</el-button>
+                                        <el-button size="small" @click="handlePermission(row)">权限设置</el-button>
+                                        <el-button size="small" :type="row.status === 1 ? 'warning' : 'success'" @click="handleLock(row, row.status === 1)">{{ row.status === 1 ? '锁定' : '解锁' }}</el-button>
+                                        <el-button size="small" type="danger" @click="handleDelete(row)">删除</el-button>
+                                    </div>
+                                </template>
+                            </el-table-column>
+                        </el-table>
+
+                        <!-- 分页 -->
+                        <el-pagination
+                            v-model:current-page="pagination.page"
+                            v-model:page-size="pagination.pageSize"
+                            :page-sizes="[10, 20, 50, 100]"
+                            layout="total, sizes, prev, pager, next, jumper"
+                            :total="pagination.total"
+                            @size-change="handleSizeChange"
+                            @current-change="handlePageChange"
+                            style="margin-top: 20px; justify-content: flex-end;">
+                        </el-pagination>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/element-plus"></script>
+    <script src="https://unpkg.com/@element-plus/icons-vue"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+        const { createApp, ref, reactive, computed, onMounted } = Vue;
+        const app = createApp({
+            setup() {
+                const activeMenu = ref('/admin/list');
+                const currentUser = ref({});
+                const loading = ref(false);
+                const searchForm = reactive({ roleId: '', sortBy: '', lastLoginAfter: '', keyword: '' });
+                const adminList = ref([]);
+                const pagination = reactive({ page: 1, pageSize: 20, total: 0 });
+
+                const userInitial = computed(() => {
+                    const name = currentUser.value.realName || currentUser.value.username || 'A';
+                    return name.charAt(0).toUpperCase();
+                });
+
+                // 获取头像首字母
+                const getAvatarInitial = (row) => {
+                    const name = row.realName || row.username || 'A';
+                    return name.charAt(0).toUpperCase();
+                };
+
+                // 格式化日期时间
+                const formatDateTime = (dateTime) => {
+                    if (!dateTime) return '-';
+                    const date = new Date(dateTime);
+                    return date.toLocaleString('zh-CN', { 
+                        year: 'numeric', month: '2-digit', day: '2-digit',
+                        hour: '2-digit', minute: '2-digit', second: '2-digit'
+                    });
+                };
+
+                // 获取角色标签类型
+                const getRoleType = (roleName) => {
+                    if (roleName.includes('超级')) return 'danger';
+                    if (roleName.includes('站点')) return 'warning';
+                    return 'info';
+                };
+
+                // 加载管理员列表
+                const loadAdminList = async () => {
+                    loading.value = true;
+                    try {
+                        const params = new URLSearchParams();
+                        if (searchForm.roleId) params.append('roleId', searchForm.roleId);
+                        if (searchForm.sortBy) params.append('sortBy', searchForm.sortBy);
+                        if (searchForm.lastLoginAfter) params.append('lastLoginAfter', searchForm.lastLoginAfter);
+                        if (searchForm.keyword) params.append('keyword', searchForm.keyword);
+                        params.append('page', pagination.page);
+                        params.append('pageSize', pagination.pageSize);
+
+                        const response = await axios.get('/api/admin/list?' + params.toString());
+                        if (response.data.code === 200) {
+                            adminList.value = response.data.data.list || [];
+                            pagination.total = response.data.data.total || 0;
+                        } else {
+                            ElementPlus.ElMessage.error('加载失败：' + response.data.message);
+                        }
+                    } catch (error) {
+                        console.error('Load admin list error:', error);
+                        ElementPlus.ElMessage.error('加载管理员列表失败');
+                    } finally {
+                        loading.value = false;
+                    }
+                };
+
+                // 搜索
+                const handleSearch = () => {
+                    pagination.page = 1;
+                    loadAdminList();
+                };
+
+                // 重置
+                const handleReset = () => {
+                    searchForm.roleId = '';
+                    searchForm.sortBy = '';
+                    searchForm.lastLoginAfter = '';
+                    searchForm.keyword = '';
+                    pagination.page = 1;
+                    loadAdminList();
+                };
+
+                // 分页
+                const handleSizeChange = () => { loadAdminList(); };
+                const handlePageChange = () => { loadAdminList(); };
+
+                // 操作按钮
+                const handleEdit = (row) => { ElementPlus.ElMessage.info('编辑：' + row.username); };
+                const handleChangePassword = (row) => { ElementPlus.ElMessage.info('更改密码：' + row.username); };
+                const handlePermission = (row) => { ElementPlus.ElMessage.info('权限设置：' + row.username); };
+                const handleLock = (row, lock) => {
+                    const action = lock ? '锁定' : '解锁';
+                    ElementPlus.ElMessageBox.confirm(`确定要${action}该管理员吗？`, '提示', {
+                        confirmButtonText: '确定', cancelButtonText: '取消', type: 'warning'
+                    }).then(() => {
+                        ElementPlus.ElMessage.success(action + '成功');
+                        loadAdminList();
+                    }).catch(() => {});
+                };
+                const handleDelete = (row) => {
+                    ElementPlus.ElMessageBox.confirm(`确定要删除管理员 "${row.username}" 吗？`, '警告', {
+                        confirmButtonText: '确定', cancelButtonText: '取消', type: 'error'
+                    }).then(() => {
+                        ElementPlus.ElMessage.success('删除成功');
+                        loadAdminList();
+                    }).catch(() => {});
+                };
+
+                // 切换主题
+                const switchTheme = (themeName) => {
+                    document.documentElement.setAttribute('data-theme', themeName);
+                    localStorage.setItem('cjcms_theme', themeName);
+                    ElementPlus.ElMessage.success('主题已切换');
+                };
+
+                // 退出登录
+                const handleLogout = () => {
+                    ElementPlus.ElMessageBox.confirm('确定要退出登录吗？', '提示', {
+                        confirmButtonText: '确定', cancelButtonText: '取消', type: 'warning'
+                    }).then(() => {
+                        localStorage.removeItem('token');
+                        localStorage.removeItem('user');
+                        window.location.href = '/login.html';
+                    }).catch(() => {});
+                };
+
+                // 加载用户信息
+                const loadUserInfo = () => {
+                    const userStr = localStorage.getItem('user');
+                    if (userStr) {
+                        currentUser.value = JSON.parse(userStr);
+                    } else {
+                        window.location.href = '/login.html';
+                    }
+                };
+
+                // 加载保存的主题
+                const loadSavedTheme = () => {
+                    const savedTheme = localStorage.getItem('cjcms_theme') || 'theme1';
+                    document.documentElement.setAttribute('data-theme', savedTheme);
+                };
+
+                onMounted(() => {
+                    loadUserInfo();
+                    loadSavedTheme();
+                    loadAdminList();
+                });
+
+                return {
+                    activeMenu, currentUser, loading, searchForm, adminList, pagination,
+                    userInitial, getAvatarInitial, formatDateTime, getRoleType,
+                    loadAdminList, handleSearch, handleReset, handleSizeChange, handlePageChange,
+                    handleEdit, handleChangePassword, handlePermission, handleLock, handleDelete,
+                    switchTheme, handleLogout
+                };
+            }
+        });
+
+        for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+            app.component(key, component);
+        }
+        app.use(ElementPlus);
+        app.mount('#app');
+    </script>
+</body>
+</html>

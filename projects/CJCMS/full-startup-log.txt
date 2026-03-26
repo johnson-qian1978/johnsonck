@@ -1,0 +1,47 @@
+﻿[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< com.cjcms:cjcms-web >-------------------------
+[INFO] Building CJCMS Web Application 1.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> spring-boot:3.2.0:run (default-cli) > test-compile @ cjcms-web >>>
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ cjcms-web ---
+[INFO] Copying 2 resources from src\main\resources to target\classes
+[INFO] Copying 5 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.11.0:compile (default-compile) @ cjcms-web ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 17 source files with javac [debug release 17] to target\classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] /E:/CJCMS/src/main/java/com/cjcms/service/impl/AdministratorServiceImpl.java:[16,1] Field 'log' already exists.
+[WARNING] /E:/CJCMS/src/main/java/com/cjcms/controller/MenuController.java:[16,1] Field 'log' already exists.
+[WARNING] /E:/CJCMS/src/main/java/com/cjcms/controller/AuthController.java:[18,1] Field 'log' already exists.
+[INFO] 3 warnings 
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /E:/CJCMS/src/main/java/com/cjcms/service/impl/AdministratorServiceImpl.java:[19,8] com.cjcms.service.impl.AdministratorServiceImpl不是抽象的, 并且未覆盖com.cjcms.service.AdministratorService中的抽象方法getAdministratorList(java.lang.String,java.lang.String,java.time.LocalDateTime,java.lang.String)
+[INFO] 1 error
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  5.760 s
+[INFO] Finished at: 2026-03-24T17:04:42+08:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project cjcms-web: Compilation failure
+[ERROR] /E:/CJCMS/src/main/java/com/cjcms/service/impl/AdministratorServiceImpl.java:[19,8] com.cjcms.service.impl.AdministratorServiceImpl不是抽象的, 并且未覆盖com.cjcms.service.AdministratorService中的抽象方法getAdministratorList(java.lang.String,java.lang.String,java.time.LocalDateTime,java.lang.String)
+[ERROR] 
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+
