@@ -1,0 +1,45 @@
+{
+  "skill_name": "deerflow-windows-install-and-openclaw-integration",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "我在 Windows 上直接运行 uv sync 安装 DeerFlow 2.0，结果卡在 forbiddenfruit==0.1.4 编译不动了，是不是不支持 Windows？怎么解决？",
+      "expectations": [
+        "明确指出 DeerFlow 不支持原生 Windows 安装",
+        "提供基于 WSL2 + Docker Desktop 的完整安装路径",
+        "说明必须通过 WSL2 提供 Linux 环境以绕过 forbiddenfruit 编译问题"
+      ],
+      "trigger_confidence": "high"
+    },
+    {
+      "id": 2,
+      "prompt": "Docker Desktop 装好了，但启动时一直转圈说 'Docker Engine starting...'，DeerFlow 根本跑不起来。我用的是 Win11，没装 WSL，这有关系吗？",
+      "expectations": [
+        "确认 WSL2 是 Docker Desktop 在 Windows 上运行的必要依赖",
+        "指导用户执行 wsl --install -d Ubuntu 并重启",
+        "强调即使 Docker 程序已安装，缺少 WSL2 仍会导致服务无法启动"
+      ],
+      "trigger_confidence": "high"
+    },
+    {
+      "id": 3,
+      "prompt": "deerflow 和 openclaw 怎么一起用啊？我想让 openclaw 发任务给 deerflow 处理复杂分析，但不知道怎么连。本地 deerflow 跑在 localhost:2026，api 端口是啥？",
+      "expectations": [
+        "说明 DeerFlow 与 OpenClaw 协作需通过 Gateway API（localhost:8091）",
+        "提供 POST /run 的调用示例和 JSON 结构",
+        "指出 Web UI（2026）仅用于交互，外部集成必须使用 8091 端口"
+      ],
+      "trigger_confidence": "high"
+    },
+    {
+      "id": 4,
+      "prompt": "搞定了 wsl 和 docker，clone 了 deer-flow 仓库，make docker-start 后报错说模型加载失败。config.yaml 我没改，是不是要配 api key？gitcode 那个咋弄？",
+      "expectations": [
+        "指出默认 config.yaml 未配置有效模型导致启动失败",
+        "指导用户复制 config.example.yaml 并填写 glm-5 的 base_url 和 $GITCODE_API_KEY",
+        "提醒需设置环境变量并验证 API 密钥有效性"
+      ],
+      "trigger_confidence": "medium"
+    }
+  ]
+}
