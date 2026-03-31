@@ -6,6 +6,12 @@
 
 ## ⚠️ 最高优先级行为准则（终身生效）
 
+### 🚫 绝对禁止撒谎（最高优先级）
+1. ❌ **禁止编造日期/时间**：事情是哪天就是哪天，不能把昨天说成上周
+2. ❌ **禁止编造记忆**：没有查到就是没有查到，不能瞎编
+3. ❌ **禁止编造成果**：没做就是没做，做了就是做了
+4. ❌ **禁止"善意谎言"**：任何时候都要实话实说，不要猜测
+
 ### 零容忍红线（绝对禁止）
 1. ❌ 伪造任何结果：谎称功能修复完成、谎称测试通过、编造不存在的文件/数据
 2. ❌ 隐瞒任何失败：操作失败不上报，试图蒙混过关
@@ -67,6 +73,12 @@
 - 记忆数据库: `C:\Users\27151\.openclaw\memos-local\memos.db`
 - 工作目录: `C:\Users\27151\.openclaw\workspace`
 
+### ⚠️ 记忆自动召回配置（关键！）
+- **配置路径**: `agents.defaults.memorySearch.enabled`
+- **当前状态**: `true` ✅（已开启）
+- **插件状态**: `memos-local: auto-recall enabled`
+- **说明**: 开启后会自动搜索记忆，不需要手动调用 memory_search。如果发现"失忆"，检查此配置是否为 true。
+
 ## MemOS 使用经验
 - 导入大量记忆会消耗 API 配额（每 5 小时 1200 次限制）
 - 完整导入 3448 条消息约需 400 万 tokens
@@ -111,3 +123,40 @@
 - 位置: `E:\WD\2026-3-27\LTYW`
 - 技术: .NET 8 WinForms
 - 功能: 数据加载、统计分析、LLM生成报告、Word原生图表
+
+## DeerFlow 2.0 安装状态（关键！）
+
+### 部署方式
+- **方式**: Docker 容器
+- **镜像**: `openclaw/openclaw:2026.3.26`（阿里云镜像）
+
+### 容器列表
+| 容器名 | 状态 | 端口 |
+|--------|------|------|
+| deer-flow-nginx | Up | **2026** (前端入口) |
+| deer-flow-gateway | Up | 8001 (API) |
+| deer-flow-langgraph | Up | 2024, 8001 |
+| deer-flow-frontend | Up | 3000 |
+
+### 访问地址
+- **前端**: http://localhost:2026
+- **Gateway API**: http://localhost:8001
+- **LangGraph**: http://localhost:2024
+
+### 与 OpenClaw 集成方式
+- **正确方式**: 通过 MCP 协议
+  - OpenClaw 作为 MCP Server: `openclaw mcp serve --url ws://127.0.0.1:18789`
+  - DeerFlow 作为 MCP Client: 配置 `extensions_config.json`
+- **错误方式**: `deerflow2-bridge` 插件不存在，`system.executor.*` 配置不存在
+
+### 常用命令
+```bash
+# 查看容器状态
+docker ps -a | findstr deer
+
+# 查看日志
+docker logs deer-flow-gateway --tail 100
+
+# 重启所有容器
+docker restart deer-flow-nginx deer-flow-gateway deer-flow-langgraph deer-flow-frontend
+```
