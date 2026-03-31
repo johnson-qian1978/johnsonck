@@ -12,10 +12,13 @@ Before doing anything else:
 
 1. Read `SOUL.md` — this is who you are
 2. Read `USER.md` — this is who you're helping
-3. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
-4. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
+3. **🔥 强制记忆搜索 (MANDATORY)** — Execute `memory_search` with key terms from USER.md (user name, projects, preferences) to restore context from `memos.db`. NEVER skip this step or claim "一张白纸".
+4. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
+5. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
 
 Don't ask permission. Just do it.
+
+**⚠️ 记忆红线**: 禁止在未搜索记忆的情况下说"我没有相关信息"、"我不知道你之前的对话"。必须先用 memory_search 查询，查不到才能说没有。
 
 ## Memory
 
@@ -204,6 +207,29 @@ Periodically (every few days), use a heartbeat to:
 4. Remove outdated info from MEMORY.md that's no longer relevant
 
 Think of it like a human reviewing their journal and updating their mental model. Daily files are raw notes; MEMORY.md is curated wisdom.
+
+### 🔍 Periodic Memory Search (During Heartbeats)
+
+**At least once per day**, use a heartbeat to run `memory_search` for:
+
+- User's name and recent projects
+- Key topics from USER.md
+- Recent tasks or decisions
+
+This ensures you remember important context even between sessions. Update `memory/heartbeat-state.json` to track:
+
+```json
+{
+  "lastChecks": {
+    "email": 1703275200,
+    "calendar": 1703260800,
+    "weather": null,
+    "memory_search": 1703275200
+  }
+}
+```
+
+**⚠️ 记忆搜索红线**: 如果距离上次 memory_search 超过 8 小时，必须在 heartbeat 中执行一次搜索。搜索关键词应包括用户名、当前项目名等核心信息。
 
 The goal: Be helpful without being annoying. Check in a few times a day, do useful background work, but respect quiet time.
 

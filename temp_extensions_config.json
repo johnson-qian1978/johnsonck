@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "openclaw-gateway": {
+      "command": "npx",
+      "args": ["-y", "openclaw-mcp-server@latest"],
+      "env": {
+        "OPENCLAW_GATEWAY_URL": "http://host.docker.internal:18789",
+        "OPENCLAW_GATEWAY_TOKEN": "5b8003792244ebf384fd85bb48d2497b9b708a402b0224be",
+        "PORT": "3000",
+        "BIND_ADDRESS": "127.0.0.1"
+      }
+    }
+  }
+}

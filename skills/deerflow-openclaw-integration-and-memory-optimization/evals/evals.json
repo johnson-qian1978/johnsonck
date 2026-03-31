@@ -1,0 +1,44 @@
+{
+  "skill_name": "deerflow-openclaw-integration-and-memory-optimization",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "你昨天明明答应帮我配置 DeerFlow 和 OpenClaw 的自动记忆同步，今天怎么又装失忆了？我项目叫 SmartFarm_V3，相关设置都存在 ~/projects/smartfarm/memos.db 里，快给我恢复上下文！",
+      "expectations": [
+        "触发强制记忆搜索机制，使用关键词 'SmartFarm_V3' 和用户名执行 memory_search",
+        "引用 AGENTS.md 中的红线规则，禁止回复‘不知道之前对话’类语句"
+      ],
+      "trigger_confidence": "high"
+    },
+    {
+      "id": 2,
+      "prompt": "看到知乎一篇教程说用 openclaw plugins install deerflow2-bridge 就能一键集成，还提到 system.executor.engine=deerflow2，这靠谱吗？我试了报错 plugin not found",
+      "expectations": [
+        "执行 openclaw plugins list 验证插件是否存在",
+        "运行 openclaw config get system.executor.engine 确认配置路径无效，并指出这是网络幻觉",
+        "提供真实 MCP 集成方案（openclaw mcp serve + extensions_config.json）"
+      ],
+      "trigger_confidence": "high"
+    },
+    {
+      "id": 3,
+      "prompt": "想让AI每8小时自动记住我的关键项目进展，比如当前在搞的医疗问答系统MedQA。另外，能不能装个百度搜索来查最新政策？我API密钥有，但不知道咋配。",
+      "expectations": [
+        "在 HEARTBEAT.md 中添加周期性记忆搜索任务，关键词含 'MedQA' 和用户名",
+        "指导安装 baidu-search 技能并配置 BAIDU_API_KEY 到 ~/.openclaw/.env",
+        "说明需通过 heartbeat-state.json 跟踪上次搜索时间"
+      ],
+      "trigger_confidence": "medium"
+    },
+    {
+      "id": 4,
+      "prompt": "deerflow+openclaw咋连whatsapp？网上说用mcp协议，但没给具体命令。我deeflow目录是 ~/ai/deerflow2，openclaw跑在本地18789端口",
+      "expectations": [
+        "提供 OpenClaw 侧命令：openclaw mcp serve --url ws://127.0.0.1:18789",
+        "生成正确的 DeerFlow extensions_config.json 配置片段，指向 http://127.0.0.1:18789/mcp",
+        "验证 MCP 集成是唯一可行方案，否定虚构插件"
+      ],
+      "trigger_confidence": "medium"
+    }
+  ]
+}
