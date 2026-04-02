@@ -3,7 +3,8 @@
     "email": null,
     "calendar": null,
     "weather": null,
-    "memory_search": 1775286720,
-    "memory_sync": 1775115600
+    "memory_search": 1775324400,
+    "memory_sync": 1775115600,
+    "git_history_cleanup": 1775287920
   }
 }
