@@ -1,0 +1,49 @@
+{
+  "skill_name": "diagnose-and-monitor-disk-event-158-in-sangfor-vm",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "我们一台深信服虚拟机最近频繁黑屏死机，事件查看器里有Disk Event 158和Kernel-Power 41错误。之前克隆过这台VM，是不是磁盘GUID冲突？需要怎么监控磁盘I/O来收集证据给Sangfor支持？",
+      "expectations": [
+        "确认Disk 158与Kernel-Power 41组合错误的存在",
+        "解释问题源于虚拟机克隆后未重置磁盘GUID",
+        "生成C:\\jk\\disk-report.html诊断报告",
+        "部署每5分钟运行的磁盘监控脚本"
+      ],
+      "trigger_confidence": "high"
+    },
+    {
+      "id": 2,
+      "prompt": "KB2983588补丁在哪下载？装了这个就能解决我们Sangfor VM老是突然重启的问题吧？系统日志里有Event ID 158。",
+      "expectations": [
+        "澄清KB2983588是知识库文章而非可安装补丁",
+        "指出真正解决方案需在深信服平台重置磁盘标识符",
+        "引导用户检查是否因克隆导致GUID重复",
+        "建议运行diagnose-disk.bat生成HTML报告"
+      ],
+      "trigger_confidence": "high"
+    },
+    {
+      "id": 3,
+      "prompt": "刚给项目‘ERP-Prod’的虚拟机加了内存，但还是偶尔死机。事件日志没看到内存错误，倒是有个Disk 158警告。能不能写个脚本监控磁盘队列长度和延迟？路径放C:\\jk\\就行，别用中文名。",
+      "expectations": [
+        "识别用户已排除内存问题，聚焦磁盘层",
+        "确认Disk 158为关键线索",
+        "部署纯英文命名的Monitor-Disk.ps1脚本至C:\\jk\\",
+        "配置计划任务每5分钟记录磁盘性能指标到CSV"
+      ],
+      "trigger_confidence": "medium"
+    },
+    {
+      "id": 4,
+      "prompt": "sangfor vm 克隆后老蓝屏，event log 有158 和 41，咋整？网上说装kb2983588，但ms update里搜不到…急！要交报告给support",
+      "expectations": [
+        "纠正用户对KB2983588的误解",
+        "关联克隆操作与磁盘GUID冲突",
+        "生成包含系统配置和历史错误摘要的HTML报告（C:\\jk\\disk-report.html）",
+        "提供向深信服技术支持请求重置磁盘GUID的标准话术"
+      ],
+      "trigger_confidence": "high"
+    }
+  ]
+}
