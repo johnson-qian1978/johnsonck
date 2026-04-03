@@ -78,9 +78,18 @@
 ## OpenClaw 配置
 
 ### 模型配置
-- **主对话模型**: `bailian/glm-5` (阿里云 Coding Plan)
-- **MemOS 后台模型**: `qwen3-max`
+- **主对话模型**: `bailian/qwen3.5-plus` (阿里云 Coding Plan)
+- **MemOS 后台模型**: `qwen3-max` → **已切换为本地 Ollama** ✅
 - **重要**: glm-5 的 `contextWindow` 必须设为 **200000**（非 256000）
+
+### 🦙 本地 Ollama 模型配置（2026-04-02 更新）
+- **Embedding 模型**: `nomic-embed-text` (274MB) - 文本向量化
+- **摘要模型**: `qwen2.5-coder:3b` (1.9GB) - 记忆摘要/去重
+- **Ollama 地址**: `http://localhost:11434`
+- **配置效果**:
+  - ✅ 记忆检索不再消耗 API 配额
+  - ✅ 记忆摘要不再消耗 API 配额
+  - ✅ 预计节省 50-60% API 消耗（从 1200 次/5h 降至 600 次/5h）
 
 ### 服务地址
 - WebSocket: `ws://127.0.0.1:18789`
