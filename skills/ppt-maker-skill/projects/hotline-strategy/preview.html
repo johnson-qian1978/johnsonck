@@ -1,0 +1,1117 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>坚持问题靶向发力 助推热线运营长效向好 预览</title>
+  <style>
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--color-text);
+  font-family: var(--font-family-sans), sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 28%),
+    radial-gradient(circle at top right, rgba(96, 165, 250, 0.12), transparent 30%),
+    #0f172a;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.viewer-app {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+}
+
+.viewer-sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 24px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  color: #dbe7f4;
+  background: rgba(15, 23, 42, 0.92);
+  border-right: 1px solid rgba(148, 163, 184, 0.18);
+  backdrop-filter: blur(18px);
+}
+
+.viewer-brand h1 {
+  margin: 8px 0 0;
+  font-family: var(--font-family-display), sans-serif;
+  font-size: 28px;
+  line-height: 1.05;
+}
+
+.viewer-kicker {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #7dd3fc;
+}
+
+.viewer-subtitle {
+  margin: 10px 0 0;
+  color: #94a3b8;
+  line-height: 1.5;
+}
+
+.viewer-project-note {
+  margin: 10px 0 0;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+.viewer-sidebar-cards {
+  display: grid;
+  gap: 12px;
+}
+
+.sidebar-card {
+  display: grid;
+  gap: 6px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(30, 41, 59, 0.82);
+  border: 1px solid rgba(148, 163, 184, 0.14);
+}
+
+.sidebar-card strong {
+  color: #f8fafc;
+}
+
+.sidebar-card span {
+  color: #cbd5e1;
+}
+
+.sidebar-card-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #7dd3fc;
+}
+
+.slide-nav {
+  min-height: 0;
+  overflow: auto;
+  display: grid;
+  gap: 14px;
+  padding-right: 6px;
+}
+
+.slide-nav-item {
+  width: 100%;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 20px;
+  background: rgba(30, 41, 59, 0.7);
+  color: inherit;
+  padding: 14px;
+  display: grid;
+  gap: 12px;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.slide-nav-item:hover {
+  transform: translateY(-2px);
+  border-color: rgba(56, 189, 248, 0.4);
+  background: rgba(30, 41, 59, 0.92);
+}
+
+.slide-nav-item.is-active {
+  border-color: rgba(56, 189, 248, 0.72);
+  background: rgba(15, 118, 110, 0.16);
+  box-shadow: 0 18px 30px rgba(15, 23, 42, 0.24);
+}
+
+.slide-nav-meta {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 10px 12px;
+  align-items: start;
+}
+
+.slide-nav-number {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  font-weight: 700;
+  color: #f8fafc;
+  background: rgba(14, 116, 144, 0.4);
+}
+
+.slide-nav-copy {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+}
+
+.slide-nav-copy strong {
+  color: #f8fafc;
+}
+
+.slide-nav-copy span {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.slide-nav-counts {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.slide-nav-counts span {
+  padding: 5px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #cbd5e1;
+  background: rgba(15, 23, 42, 0.5);
+}
+
+.slide-nav-thumb {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: rgba(15, 23, 42, 0.92);
+}
+
+.slide-nav-thumb-scale {
+  width: calc(var(--deck-width) * var(--thumb-scale));
+  height: calc(var(--deck-height) * var(--thumb-scale));
+  overflow: hidden;
+}
+
+.slide--thumbnail {
+  transform: scale(var(--thumb-scale));
+  transform-origin: top left;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.slide--thumbnail .component {
+  pointer-events: none !important;
+}
+
+.viewer-main {
+  min-width: 0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.viewer-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1);
+  backdrop-filter: blur(16px);
+  flex-shrink: 0;
+}
+
+.viewer-toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.viewer-slide-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.viewer-page-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background: #082f49;
+  color: #f0f9ff;
+}
+
+
+.viewer-toolbar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.viewer-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 999px;
+  background: #ffffff;
+  color: #0f172a;
+  padding: 10px 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.viewer-action:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.viewer-action--primary {
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+.viewer-stage-wrap {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.viewer-stage-frame {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 22px;
+  border-radius: 28px;
+  background: rgba(248, 250, 252, 0.54);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+.stage-slide {
+  display: none;
+}
+
+.stage-slide.is-active {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+
+.slide {
+  width: var(--deck-width);
+  height: var(--deck-height);
+  margin: 0;
+  background: var(--color-background);
+  border-radius: 20px;
+  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.16);
+  overflow: hidden;
+}
+
+.slide-canvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--color-background);
+}
+
+.component {
+  position: absolute;
+}
+
+.component.is-inspectable {
+  cursor: crosshair;
+}
+
+.component.is-hovered,
+.component.is-selected {
+  outline: 3px solid rgba(56, 189, 248, 0.96);
+  outline-offset: 3px;
+}
+
+.component.is-selected {
+  outline-color: rgba(34, 197, 94, 0.98);
+}
+
+.component.is-passive[data-noninteractive="true"] {
+  pointer-events: none;
+}
+
+.component.is-build-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.js-ready .slide[data-has-animation="true"] .component.has-animation {
+  opacity: 0;
+}
+
+.js-ready .slide.is-replaying .component.has-animation {
+  animation-duration: var(--anim-duration, 640ms);
+  animation-delay: var(--anim-delay, 0ms);
+  animation-fill-mode: both;
+  animation-timing-function: var(--anim-easing, cubic-bezier(0.2, 0.8, 0.2, 1));
+}
+
+.js-ready .slide.is-replaying .component.has-animation[data-anim-effect="fade-in"] {
+  animation-name: preview-fade-in;
+}
+
+.js-ready .slide.is-replaying .component.has-animation[data-anim-effect="slide-up"] {
+  animation-name: preview-slide-up;
+}
+
+.js-ready .slide.is-replaying .component.has-animation[data-anim-effect="zoom-in"] {
+  animation-name: preview-zoom-in;
+}
+
+.title {
+  font-family: var(--font-family-display), sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  white-space: pre-wrap;
+}
+
+.subtitle {
+  color: var(--color-muted);
+  font-size: 18px;
+  white-space: pre-wrap;
+}
+
+.text {
+  font-size: 18px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.bullet-list ul {
+  margin: 0;
+  padding-left: 24px;
+}
+
+.bullet-list li {
+  margin: 0 0 10px;
+}
+
+.divider {
+  background: var(--color-divider);
+}
+
+.image {
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 20px;
+  background: rgba(15, 23, 42, 0.08);
+}
+
+.quote-block {
+  margin: 0;
+  padding: 18px 22px;
+  background: rgba(255, 255, 255, 0.72);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 16px;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.shape {
+  background: var(--color-surface);
+}
+
+.table table {
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.86);
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.table th,
+.table td {
+  border: 1px solid var(--color-divider);
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.table th {
+  background: rgba(29, 78, 216, 0.08);
+}
+
+.chart {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.chart-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.chart-bars {
+  flex: 1;
+  display: flex;
+  align-items: end;
+  gap: 14px;
+}
+
+.chart-bar-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
+}
+
+.chart-bar {
+  width: 100%;
+  min-height: 12px;
+  border-radius: 10px 10px 0 0;
+}
+
+.chart-label {
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+.unsupported {
+  display: grid;
+  place-items: center;
+  color: #b91c1c;
+  border: 1px dashed #fecaca;
+  background: #fff1f2;
+}
+
+.component-tooltip {
+  position: fixed;
+  z-index: 80;
+  display: grid;
+  gap: 4px;
+  max-width: 320px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.94);
+  color: #f8fafc;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.28);
+  pointer-events: none;
+}
+
+.component-tooltip strong {
+  font-size: 13px;
+}
+
+.component-tooltip span {
+  color: #cbd5e1;
+  font-size: 12px;
+}
+
+.copy-toast {
+  position: fixed;
+  right: 26px;
+  bottom: 26px;
+  z-index: 90;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.94);
+  color: #f8fafc;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.28);
+}
+
+.copy-toast.is-visible {
+  opacity: 1;
+}
+
+@keyframes preview-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes preview-slide-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 26px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes preview-zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 1480px) {
+  .viewer-app {
+    grid-template-columns: 260px minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 1200px) {
+  .viewer-app {
+    grid-template-columns: 1fr;
+  }
+
+  .viewer-sidebar {
+    position: static;
+    height: auto;
+    border-right: 0;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+  }
+
+  .slide-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 820px) {
+  .viewer-main {
+    padding: 16px;
+  }
+
+  .slide-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .viewer-toolbar {
+    flex-direction: column;
+  }
+
+  .viewer-stage-frame {
+    padding: 12px;
+  }
+}
+
+  :root {
+    --deck-width: 1280px;
+    --deck-height: 720px;
+    --thumb-scale: 0.18;
+    --font-family-sans: Aptos;
+    --font-family-display: Aptos Display;
+    --color-background: #F8FAFC;
+    --color-surface: #FFFFFF;
+    --color-text: #0F172A;
+    --color-muted: #475569;
+    --color-accent: #1D4ED8;
+    --color-divider: #CBD5E1;
+  }
+  </style>
+</head>
+<body>
+  <main class="viewer-app">
+    <aside class="viewer-sidebar">
+      <div class="viewer-brand">
+        <p class="viewer-kicker">项目预览</p>
+        <h1>坚持问题靶向发力 助推热线运营长效向好</h1>
+        <p class="viewer-subtitle">hotline-strategy · 共 3 页</p>
+        <p class="viewer-project-note">点击页面区块后，会自动复制可用于告诉 AI 的识别信息。</p>
+      </div>
+      <nav class="slide-nav" aria-label="幻灯片列表">
+        
+    <button class="slide-nav-item is-active" type="button" data-slide-index="0">
+      <div class="slide-nav-meta">
+        <div class="slide-nav-number">1</div>
+        <div class="slide-nav-copy">
+          <strong>封面</strong>
+          <span>封面</span>
+        </div>
+      </div>
+      <div class="slide-nav-thumb">
+        <div class="slide-nav-thumb-scale">
+          <section class="slide slide--thumbnail" aria-hidden="true">
+            <div class="slide-canvas slide-canvas--thumb"><div class="component title is-passive" data-component-id="s1-title" data-component-type="title" data-component-type-label="标题" data-component-preview="坚持问题靶向发力 助推热线运营长效向好" data-component-slide-id="slide-1" data-component-slide-label="封面" data-component-slide-type="cover" data-component-slide-type-label="封面" data-component-slide-number="1" data-component-effect-label="无" data-component-frame="左 1.00 · 上 2.00 · 宽 8.00 · 高 1.00" data-noninteractive="true" aria-hidden="true" style="left:96.0024000600015px;top:192.004800120003px;width:768.019200480012px;height:96.0024000600015px;color:#FF6B6B;font-size:32px;font-weight:700">坚持问题靶向发力 助推热线运营长效向好</div>
+<div class="component subtitle is-passive" data-component-id="s1-subtitle" data-component-type="subtitle" data-component-type-label="副标题" data-component-preview="聚焦首问办结 提升人员在线解决能力 工作汇报 - 2026 年 4 月" data-component-slide-id="slide-1" data-component-slide-label="封面" data-component-slide-type="cover" data-component-slide-type-label="封面" data-component-slide-number="1" data-component-effect-label="无" data-component-frame="左 1.00 · 上 3.20 · 宽 8.00 · 高 0.80" data-noninteractive="true" aria-hidden="true" style="left:96.0024000600015px;top:307.20768019200483px;width:768.019200480012px;height:76.80192004800121px;color:#333333;font-size:18px">聚焦首问办结 提升人员在线解决能力
+工作汇报 - 2026 年 4 月</div></div>
+          </section>
+        </div>
+      </div>
+    </button>
+  
+
+    <button class="slide-nav-item" type="button" data-slide-index="1">
+      <div class="slide-nav-meta">
+        <div class="slide-nav-number">2</div>
+        <div class="slide-nav-copy">
+          <strong>目录</strong>
+          <span>目录</span>
+        </div>
+      </div>
+      <div class="slide-nav-thumb">
+        <div class="slide-nav-thumb-scale">
+          <section class="slide slide--thumbnail" aria-hidden="true">
+            <div class="slide-canvas slide-canvas--thumb"><div class="component title is-passive" data-component-id="s2-title" data-component-type="title" data-component-type-label="标题" data-component-preview="目录" data-component-slide-id="slide-2" data-component-slide-label="目录" data-component-slide-type="agenda" data-component-slide-type-label="目录" data-component-slide-number="2" data-component-effect-label="无" data-component-frame="左 1.00 · 上 0.80 · 宽 8.00 · 高 0.60" data-noninteractive="true" aria-hidden="true" style="left:96.0024000600015px;top:76.80192004800121px;width:768.019200480012px;height:57.6014400360009px;color:#4472C4;font-size:28px;font-weight:700">目录</div>
+<div class="component bullet-list is-passive" data-component-id="s2-bullets" data-component-type="bullet-list" data-component-type-label="要点列表" data-component-preview="01 问题背景与挑战 / 02 三阶段推进策略 / 03 三大核心举措 / 04 制度保障 / 05 成效与展望" data-component-slide-id="slide-2" data-component-slide-label="目录" data-component-slide-type="agenda" data-component-slide-type-label="目录" data-component-slide-number="2" data-component-effect-label="无" data-component-frame="左 1.00 · 上 1.80 · 宽 8.00 · 高 3.00" data-noninteractive="true" aria-hidden="true" style="left:96.0024000600015px;top:172.8043201080027px;width:768.019200480012px;height:288.00720018000453px;color:#333333;font-size:20px"><ul><li>01 问题背景与挑战</li><li>02 三阶段推进策略</li><li>03 三大核心举措</li><li>04 制度保障</li><li>05 成效与展望</li></ul></div></div>
+          </section>
+        </div>
+      </div>
+    </button>
+  
+
+    <button class="slide-nav-item" type="button" data-slide-index="2">
+      <div class="slide-nav-meta">
+        <div class="slide-nav-number">3</div>
+        <div class="slide-nav-copy">
+          <strong>问题背景</strong>
+          <span>标题与要点</span>
+        </div>
+      </div>
+      <div class="slide-nav-thumb">
+        <div class="slide-nav-thumb-scale">
+          <section class="slide slide--thumbnail" aria-hidden="true">
+            <div class="slide-canvas slide-canvas--thumb"><div class="component title is-passive" data-component-id="s3-title" data-component-type="title" data-component-type-label="标题" data-component-preview="1. 问题背景与挑战" data-component-slide-id="slide-3" data-component-slide-label="问题背景" data-component-slide-type="title-bullets" data-component-slide-type-label="标题与要点" data-component-slide-number="3" data-component-effect-label="无" data-component-frame="左 1.00 · 上 0.80 · 宽 8.00 · 高 0.60" data-noninteractive="true" aria-hidden="true" style="left:96.0024000600015px;top:76.80192004800121px;width:768.019200480012px;height:57.6014400360009px;color:#4472C4;font-size:24px;font-weight:700">1. 问题背景与挑战</div>
+<div class="component bullet-list is-passive" data-component-id="s3-bullets" data-component-type="bullet-list" data-component-type-label="要点列表" data-component-preview="新员工大批量入职 - 回迁初期人员快速扩充 / 技能水平偏低 - 业务能力不足，首问解决率低 / 接续辅导少 - 缺乏一对一指导 / 提单率高 - 问题升级到上级部门" data-component-slide-id="slide-3" data-component-slide-label="问题背景" data-component-slide-type="title-bullets" data-component-slide-type-label="标题与要点" data-component-slide-number="3" data-component-effect-label="无" data-component-frame="左 1.00 · 上 1.80 · 宽 8.00 · 高 2.50" data-noninteractive="true" aria-hidden="true" style="left:96.0024000600015px;top:172.8043201080027px;width:768.019200480012px;height:240.00600015000376px;color:#333333;font-size:18px"><ul><li>新员工大批量入职 - 回迁初期人员快速扩充</li><li>技能水平偏低 - 业务能力不足，首问解决率低</li><li>接续辅导少 - 缺乏一对一指导</li><li>提单率高 - 问题升级到上级部门</li></ul></div>
+<blockquote class="component quote-block is-passive" data-component-id="s3-callout" data-component-type="quote-block" data-component-type-label="引用" data-component-preview="解决思路：以首问办结为核心牵引，结合话务场景特点，动态优化流程规范" data-component-slide-id="slide-3" data-component-slide-label="问题背景" data-component-slide-type="title-bullets" data-component-slide-type-label="标题与要点" data-component-slide-number="3" data-component-effect-label="无" data-component-frame="左 1.00 · 上 4.50 · 宽 8.00 · 高 0.80" data-noninteractive="true" aria-hidden="true" style="left:96.0024000600015px;top:432.01080027000677px;width:768.019200480012px;height:76.80192004800121px;color:#FFFFFF;font-size:14px">解决思路：以首问办结为核心牵引，结合话务场景特点，动态优化流程规范</blockquote></div>
+          </section>
+        </div>
+      </div>
+    </button>
+  
+      </nav>
+    </aside>
+
+    <section class="viewer-main">
+      <header class="viewer-toolbar">
+        <div class="viewer-toolbar-left">
+          <span class="viewer-page-chip" id="currentPageChip">第 1 / 3 页</span>
+          <span class="viewer-slide-name" id="currentSlideTitle">封面</span>
+        </div>
+        <div class="viewer-toolbar-actions">
+          <button type="button" class="viewer-action" id="prevSlideButton">◀</button>
+          <button type="button" class="viewer-action" id="nextSlideButton">▶</button>
+          <button type="button" class="viewer-action" id="replayButton">↻</button>
+          <a class="viewer-action viewer-action--primary" href="file:///C:/Users/27151/.openclaw/workspace/skills/ppt-maker-skill/projects/hotline-strategy/hotline-strategy.pptx">导出 PPT</a>
+        </div>
+      </header>
+
+      <section class="viewer-stage-wrap">
+        <div class="viewer-stage-frame" id="stageFrame">
+          
+    <section
+      class="stage-slide is-active"
+      data-slide-index="0"
+      data-slide-id="slide-1"
+      data-slide-label="封面"
+      data-slide-type="cover"
+      data-slide-type-label="封面"
+      data-slide-build-count="0"
+      data-slide-build-seq=""
+      data-slide-component-count="2"
+    >
+      <section class="slide" id="preview-slide-1" data-slide-id="slide-1" data-has-animation="false">
+        <div class="slide-canvas slide-canvas--stage"><div class="component title is-inspectable" data-component-id="s1-title" data-component-type="title" data-component-type-label="标题" data-component-preview="坚持问题靶向发力 助推热线运营长效向好" data-component-slide-id="slide-1" data-component-slide-label="封面" data-component-slide-type="cover" data-component-slide-type-label="封面" data-component-slide-number="1" data-component-effect-label="无" data-component-frame="左 1.00 · 上 2.00 · 宽 8.00 · 高 1.00" tabindex="0" style="left:96.0024000600015px;top:192.004800120003px;width:768.019200480012px;height:96.0024000600015px;color:#FF6B6B;font-size:32px;font-weight:700">坚持问题靶向发力 助推热线运营长效向好</div>
+<div class="component subtitle is-inspectable" data-component-id="s1-subtitle" data-component-type="subtitle" data-component-type-label="副标题" data-component-preview="聚焦首问办结 提升人员在线解决能力 工作汇报 - 2026 年 4 月" data-component-slide-id="slide-1" data-component-slide-label="封面" data-component-slide-type="cover" data-component-slide-type-label="封面" data-component-slide-number="1" data-component-effect-label="无" data-component-frame="左 1.00 · 上 3.20 · 宽 8.00 · 高 0.80" tabindex="0" style="left:96.0024000600015px;top:307.20768019200483px;width:768.019200480012px;height:76.80192004800121px;color:#333333;font-size:18px">聚焦首问办结 提升人员在线解决能力
+工作汇报 - 2026 年 4 月</div></div>
+      </section>
+    </section>
+  
+
+    <section
+      class="stage-slide"
+      data-slide-index="1"
+      data-slide-id="slide-2"
+      data-slide-label="目录"
+      data-slide-type="agenda"
+      data-slide-type-label="目录"
+      data-slide-build-count="0"
+      data-slide-build-seq=""
+      data-slide-component-count="2"
+    >
+      <section class="slide" id="preview-slide-2" data-slide-id="slide-2" data-has-animation="false">
+        <div class="slide-canvas slide-canvas--stage"><div class="component title is-inspectable" data-component-id="s2-title" data-component-type="title" data-component-type-label="标题" data-component-preview="目录" data-component-slide-id="slide-2" data-component-slide-label="目录" data-component-slide-type="agenda" data-component-slide-type-label="目录" data-component-slide-number="2" data-component-effect-label="无" data-component-frame="左 1.00 · 上 0.80 · 宽 8.00 · 高 0.60" tabindex="0" style="left:96.0024000600015px;top:76.80192004800121px;width:768.019200480012px;height:57.6014400360009px;color:#4472C4;font-size:28px;font-weight:700">目录</div>
+<div class="component bullet-list is-inspectable" data-component-id="s2-bullets" data-component-type="bullet-list" data-component-type-label="要点列表" data-component-preview="01 问题背景与挑战 / 02 三阶段推进策略 / 03 三大核心举措 / 04 制度保障 / 05 成效与展望" data-component-slide-id="slide-2" data-component-slide-label="目录" data-component-slide-type="agenda" data-component-slide-type-label="目录" data-component-slide-number="2" data-component-effect-label="无" data-component-frame="左 1.00 · 上 1.80 · 宽 8.00 · 高 3.00" tabindex="0" style="left:96.0024000600015px;top:172.8043201080027px;width:768.019200480012px;height:288.00720018000453px;color:#333333;font-size:20px"><ul><li>01 问题背景与挑战</li><li>02 三阶段推进策略</li><li>03 三大核心举措</li><li>04 制度保障</li><li>05 成效与展望</li></ul></div></div>
+      </section>
+    </section>
+  
+
+    <section
+      class="stage-slide"
+      data-slide-index="2"
+      data-slide-id="slide-3"
+      data-slide-label="问题背景"
+      data-slide-type="title-bullets"
+      data-slide-type-label="标题与要点"
+      data-slide-build-count="0"
+      data-slide-build-seq=""
+      data-slide-component-count="3"
+    >
+      <section class="slide" id="preview-slide-3" data-slide-id="slide-3" data-has-animation="false">
+        <div class="slide-canvas slide-canvas--stage"><div class="component title is-inspectable" data-component-id="s3-title" data-component-type="title" data-component-type-label="标题" data-component-preview="1. 问题背景与挑战" data-component-slide-id="slide-3" data-component-slide-label="问题背景" data-component-slide-type="title-bullets" data-component-slide-type-label="标题与要点" data-component-slide-number="3" data-component-effect-label="无" data-component-frame="左 1.00 · 上 0.80 · 宽 8.00 · 高 0.60" tabindex="0" style="left:96.0024000600015px;top:76.80192004800121px;width:768.019200480012px;height:57.6014400360009px;color:#4472C4;font-size:24px;font-weight:700">1. 问题背景与挑战</div>
+<div class="component bullet-list is-inspectable" data-component-id="s3-bullets" data-component-type="bullet-list" data-component-type-label="要点列表" data-component-preview="新员工大批量入职 - 回迁初期人员快速扩充 / 技能水平偏低 - 业务能力不足，首问解决率低 / 接续辅导少 - 缺乏一对一指导 / 提单率高 - 问题升级到上级部门" data-component-slide-id="slide-3" data-component-slide-label="问题背景" data-component-slide-type="title-bullets" data-component-slide-type-label="标题与要点" data-component-slide-number="3" data-component-effect-label="无" data-component-frame="左 1.00 · 上 1.80 · 宽 8.00 · 高 2.50" tabindex="0" style="left:96.0024000600015px;top:172.8043201080027px;width:768.019200480012px;height:240.00600015000376px;color:#333333;font-size:18px"><ul><li>新员工大批量入职 - 回迁初期人员快速扩充</li><li>技能水平偏低 - 业务能力不足，首问解决率低</li><li>接续辅导少 - 缺乏一对一指导</li><li>提单率高 - 问题升级到上级部门</li></ul></div>
+<blockquote class="component quote-block is-inspectable" data-component-id="s3-callout" data-component-type="quote-block" data-component-type-label="引用" data-component-preview="解决思路：以首问办结为核心牵引，结合话务场景特点，动态优化流程规范" data-component-slide-id="slide-3" data-component-slide-label="问题背景" data-component-slide-type="title-bullets" data-component-slide-type-label="标题与要点" data-component-slide-number="3" data-component-effect-label="无" data-component-frame="左 1.00 · 上 4.50 · 宽 8.00 · 高 0.80" tabindex="0" style="left:96.0024000600015px;top:432.01080027000677px;width:768.019200480012px;height:76.80192004800121px;color:#FFFFFF;font-size:14px">解决思路：以首问办结为核心牵引，结合话务场景特点，动态优化流程规范</blockquote></div>
+      </section>
+    </section>
+  
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <div class="component-tooltip" id="componentTooltip" hidden></div>
+  <div class="copy-toast" id="copyToast" hidden>已复制</div>
+
+  <script>
+    (() => {
+      const stageSlides = Array.from(document.querySelectorAll(".stage-slide"));
+      const navItems = Array.from(document.querySelectorAll(".slide-nav-item"));
+      const prevButton = document.getElementById("prevSlideButton");
+      const nextButton = document.getElementById("nextSlideButton");
+      const replayButton = document.getElementById("replayButton");
+      const currentPageChip = document.getElementById("currentPageChip");
+      const currentSlideTitle = document.getElementById("currentSlideTitle");
+      const stageFrame = document.getElementById("stageFrame");
+      const tooltip = document.getElementById("componentTooltip");
+      const copyToast = document.getElementById("copyToast");
+
+      let activeIndex = 0;
+      let hoveredElement = null;
+      let pinnedElement = null;
+      let copyToastTimer = null;
+      let replayRunToken = 0;
+
+      function buildSequenceForStage(stageElement) {
+        if (!stageElement || !stageElement.dataset.slideBuildSeq) {
+          return [];
+        }
+        return stageElement.dataset.slideBuildSeq
+          .split(",")
+          .map((value) => Number(value))
+          .filter((value) => Number.isFinite(value) && value > 0);
+      }
+
+      function applyBuildState(slideElement, activeBuildValue) {
+        if (!slideElement) {
+          return;
+        }
+        slideElement.querySelectorAll(".component").forEach((element) => {
+          const build = Number(element.dataset.componentBuild || 0);
+          const isHidden = build > 0 && build > activeBuildValue;
+          element.classList.toggle("is-build-hidden", isHidden);
+        });
+      }
+
+      function activeStageSlide() {
+        return stageSlides[activeIndex] || null;
+      }
+
+      function activeCanvas() {
+        const active = activeStageSlide();
+        return active ? active.querySelector(".slide") : null;
+      }
+
+      function pageLabelFromData(data) {
+        return "第" + data.componentSlideNumber + "页 · " + data.componentSlideLabel;
+      }
+
+      function promptSuggestion(data) {
+        const targetName = data.componentLabel || data.componentRole || data.componentId;
+        return "把" + pageLabelFromData(data) + "里的“" + targetName + "”（" + data.componentId + "）调整一下";
+      }
+
+      function buildRecognitionText(data) {
+        return pageLabelFromData(data) + "中的“" + (data.componentLabel || data.componentId) + "”（" + data.componentId + "）";
+      }
+
+      async function copyText(text) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(text);
+          return;
+        }
+
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.setAttribute("readonly", "");
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+      }
+
+      function showCopyToast(message) {
+        copyToast.textContent = message;
+        copyToast.hidden = false;
+        copyToast.classList.add("is-visible");
+        window.clearTimeout(copyToastTimer);
+        copyToastTimer = window.setTimeout(() => {
+          copyToast.classList.remove("is-visible");
+          copyToast.hidden = true;
+        }, 1800);
+      }
+
+      function showTooltip(event, element) {
+        const data = element.dataset;
+        tooltip.hidden = false;
+        tooltip.innerHTML =
+          "<strong>" +
+          (data.componentLabel || data.componentId) +
+          "</strong><span>" +
+          (data.componentTypeLabel || data.componentType) +
+          (data.componentRole ? " · " + data.componentRole : "") +
+          "</span>";
+        const offset = 16;
+        tooltip.style.left = event.clientX + offset + "px";
+        tooltip.style.top = event.clientY + offset + "px";
+      }
+
+      function hideTooltip() {
+        tooltip.hidden = true;
+      }
+
+      function refreshInspector() {}
+
+      function clearComponentState() {
+        if (hoveredElement) {
+          hoveredElement.classList.remove("is-hovered");
+          hoveredElement = null;
+        }
+        if (pinnedElement) {
+          pinnedElement.classList.remove("is-selected");
+          pinnedElement = null;
+        }
+        hideTooltip();
+        refreshInspector();
+      }
+
+      function updateSlideInfo() {
+        const stage = activeStageSlide();
+        if (!stage) {
+          return;
+        }
+
+        const page = activeIndex + 1;
+        currentPageChip.textContent = "第 " + page + " / " + stageSlides.length + " 页";
+        currentSlideTitle.textContent = stage.dataset.slideLabel;
+        prevButton.disabled = activeIndex === 0;
+        nextButton.disabled = activeIndex === stageSlides.length - 1;
+      }
+
+      function scaleStage() {
+        const frame = stageFrame;
+        if (!frame) return;
+        const activeSlide = frame.querySelector(".stage-slide.is-active .slide");
+        if (!activeSlide) return;
+        const availW = frame.clientWidth - 44;
+        const availH = frame.clientHeight - 44;
+        const slideW = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--deck-width"));
+        const slideH = parseInt(getComputedStyle(document.documentElement).getPropertyValue("--deck-height"));
+        const scale = Math.min(availW / slideW, availH / slideH, 1);
+        activeSlide.style.transform = "scale(" + scale + ")";
+        activeSlide.style.transformOrigin = "top center";
+      }
+
+      function showFinalBuildState() {
+        const stage = activeStageSlide();
+        const canvas = activeCanvas();
+        const sequence = buildSequenceForStage(stage);
+        const finalBuild = sequence.length ? sequence[sequence.length - 1] : Number.POSITIVE_INFINITY;
+        applyBuildState(canvas, finalBuild);
+      }
+
+      function replayCurrentBuildSequence(manual = false) {
+        const stage = activeStageSlide();
+        const canvas = activeCanvas();
+        const sequence = buildSequenceForStage(stage);
+        replayRunToken += 1;
+        const currentRun = replayRunToken;
+
+        if (!sequence.length) {
+          applyBuildState(canvas, Number.POSITIVE_INFINITY);
+          if (manual) {
+            showCopyToast("当前页没有分步动画");
+          }
+          return;
+        }
+
+        applyBuildState(canvas, 0);
+        sequence.forEach((buildValue, index) => {
+          window.setTimeout(() => {
+            if (currentRun !== replayRunToken) {
+              return;
+            }
+            applyBuildState(canvas, buildValue);
+          }, (index + 1) * 560);
+        });
+      }
+
+      function setActiveSlide(index, options = {}) {
+        const nextIndex = Math.max(0, Math.min(index, stageSlides.length - 1));
+        replayRunToken += 1;
+        activeIndex = nextIndex;
+        stageSlides.forEach((stage, stageIndex) => {
+          stage.classList.toggle("is-active", stageIndex === nextIndex);
+        });
+        navItems.forEach((item, itemIndex) => {
+          item.classList.toggle("is-active", itemIndex === nextIndex);
+          if (itemIndex === nextIndex) {
+            item.scrollIntoView({ block: "nearest", behavior: options.instant ? "auto" : "smooth" });
+          }
+        });
+        clearComponentState();
+        updateSlideInfo();
+        scaleStage();
+        requestAnimationFrame(() => {
+          if (options.replay === false) {
+            showFinalBuildState();
+            return;
+          }
+          replayCurrentBuildSequence(false);
+        });
+      }
+
+      function attachComponentInteractions() {
+        document.querySelectorAll(".stage-slide .component.is-inspectable").forEach((element) => {
+          element.addEventListener("mouseenter", (event) => {
+            if (hoveredElement && hoveredElement !== element) {
+              hoveredElement.classList.remove("is-hovered");
+            }
+            hoveredElement = element;
+            element.classList.add("is-hovered");
+            refreshInspector();
+            showTooltip(event, element);
+          });
+
+          element.addEventListener("mousemove", (event) => {
+            if (element === hoveredElement) {
+              showTooltip(event, element);
+            }
+          });
+
+          element.addEventListener("mouseleave", () => {
+            if (hoveredElement === element) {
+              element.classList.remove("is-hovered");
+              hoveredElement = null;
+              hideTooltip();
+              refreshInspector();
+            }
+          });
+
+          element.addEventListener("focus", () => {
+            if (hoveredElement && hoveredElement !== element) {
+              hoveredElement.classList.remove("is-hovered");
+            }
+            hoveredElement = element;
+            element.classList.add("is-hovered");
+            refreshInspector();
+          });
+
+          element.addEventListener("blur", () => {
+            if (hoveredElement === element) {
+              element.classList.remove("is-hovered");
+              hoveredElement = null;
+              refreshInspector();
+            }
+          });
+
+          element.addEventListener("click", (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            if (pinnedElement && pinnedElement !== element) {
+              pinnedElement.classList.remove("is-selected");
+            }
+            pinnedElement = element;
+            element.classList.add("is-selected");
+            refreshInspector();
+            copyText(buildRecognitionText(element.dataset))
+              .then(() => showCopyToast("已复制区块识别信息"))
+              .catch(() => showCopyToast("复制失败，请重试"));
+          });
+        });
+
+        document.querySelector(".viewer-stage-frame").addEventListener("click", () => {
+          if (pinnedElement) {
+            pinnedElement.classList.remove("is-selected");
+            pinnedElement = null;
+            refreshInspector();
+          }
+        });
+      }
+
+      window.addEventListener("DOMContentLoaded", () => {
+        document.body.classList.add("js-ready");
+        attachComponentInteractions();
+        navItems.forEach((item, index) => {
+          item.addEventListener("click", () => setActiveSlide(index));
+        });
+        prevButton.addEventListener("click", () => setActiveSlide(activeIndex - 1));
+        nextButton.addEventListener("click", () => setActiveSlide(activeIndex + 1));
+        replayButton.addEventListener("click", () => replayCurrentBuildSequence(true));
+
+        window.addEventListener("keydown", (event) => {
+          if (event.key === "ArrowUp" || event.key === "ArrowLeft") {
+            event.preventDefault();
+            setActiveSlide(activeIndex - 1);
+          }
+          if (event.key === "ArrowDown" || event.key === "ArrowRight") {
+            event.preventDefault();
+            setActiveSlide(activeIndex + 1);
+          }
+          if (event.key === "Escape" && pinnedElement) {
+            pinnedElement.classList.remove("is-selected");
+            pinnedElement = null;
+            refreshInspector();
+          }
+        });
+
+        setActiveSlide(0, { instant: true });
+        scaleStage();
+        window.addEventListener("resize", scaleStage);
+      });
+    })();
+  </script>
+</body>
+</html>

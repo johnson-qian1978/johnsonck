@@ -60,6 +60,42 @@
     "windows-ui-automation": {
       "version": "1.0.0",
       "installedAt": 1774919266838
+    },
+    "apple-style-ppt-maker": {
+      "version": "1.0.0",
+      "installedAt": 1775525658757
+    },
+    "ppt-maker-skill": {
+      "version": "1.0.0",
+      "installedAt": 1775525658945
+    },
+    "ppt-workflow": {
+      "version": "1.0.0",
+      "installedAt": 1775526339048
+    },
+    "report-ppt-generator-pro": {
+      "version": "1.0.7",
+      "installedAt": 1775526339113
+    },
+    "skywork-ppt": {
+      "version": "1.0.5",
+      "installedAt": 1775526339131
+    },
+    "text-to-ppt": {
+      "version": "1.0.0",
+      "installedAt": 1775526348317
+    },
+    "2slides-skills": {
+      "version": "1.0.0",
+      "installedAt": 1775526348469
+    },
+    "slidev-ppt-generator": {
+      "version": "1.4.0",
+      "installedAt": 1775526348510
+    },
+    "html-to-ppt": {
+      "version": "1.0.0",
+      "installedAt": 1775526761717
     }
   }
 }

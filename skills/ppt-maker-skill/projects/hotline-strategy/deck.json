@@ -1,0 +1,334 @@
+{
+  "meta": {
+    "title": "坚持问题靶向发力 助推热线运营长效向好",
+    "theme": "business-briefing",
+    "template": "business-briefing",
+    "archetype": "general-briefing",
+    "ratio": "16:9",
+    "mode": "editable"
+  },
+  "slides": [
+    {
+      "id": "slide-1",
+      "label": "封面",
+      "type": "cover",
+      "layoutVariant": "hero-left",
+      "components": [
+        {
+          "id": "s1-title",
+          "type": "title",
+          "text": "坚持问题靶向发力 助推热线运营长效向好",
+          "x": 1, "y": 2, "w": 8, "h": 1,
+          "style": { "fontSize": 32, "bold": true, "color": "#E63946" }
+        },
+        {
+          "id": "s1-subtitle",
+          "type": "subtitle",
+          "text": "聚焦"首问办结"提升人员在线解决能力\n\n湖北联通热线运营中心\n2026 年 4 月",
+          "x": 1, "y": 3.2, "w": 8, "h": 1,
+          "style": { "fontSize": 18, "color": "#333333" }
+        }
+      ]
+    },
+    {
+      "id": "slide-2",
+      "label": "目录",
+      "type": "agenda",
+      "components": [
+        {
+          "id": "s2-title",
+          "type": "title",
+          "text": "目录",
+          "x": 1, "y": 0.8, "w": 8, "h": 0.6,
+          "style": { "fontSize": 28, "bold": true, "color": "#E63946" }
+        },
+        {
+          "id": "s2-bullets",
+          "type": "bullet-list",
+          "items": [
+            "01 问题背景与挑战",
+            "02 三阶段推进策略",
+            "03 三大核心举措",
+            "04 制度保障",
+            "05 成效与展望"
+          ],
+          "x": 1, "y": 1.8, "w": 8, "h": 3,
+          "style": { "fontSize": 20, "color": "#333333" }
+        }
+      ]
+    },
+    {
+      "id": "slide-3",
+      "label": "问题背景",
+      "type": "title-bullets",
+      "components": [
+        {
+          "id": "s3-title",
+          "type": "title",
+          "text": "1. 问题背景与挑战",
+          "x": 1, "y": 0.8, "w": 8, "h": 0.6,
+          "style": { "fontSize": 24, "bold": true, "color": "#E63946" }
+        },
+        {
+          "id": "s3-bullets",
+          "type": "bullet-list",
+          "items": [
+            "新员工大批量入职 - 回迁初期人员快速扩充",
+            "技能水平偏低 - 业务能力不足，首问解决率低",
+            "接续辅导少 - 缺乏一对一指导",
+            "提单率高 - 问题升级到上级部门"
+          ],
+          "x": 1, "y": 1.8, "w": 8, "h": 2.5,
+          "style": { "fontSize": 18, "color": "#333333" }
+        },
+        {
+          "id": "s3-callout",
+          "type": "quote-block",
+          "text": "解决思路：以"首问办结"为核心牵引，结合话务场景特点，动态优化流程规范",
+          "x": 1, "y": 4.5, "w": 8, "h": 0.8,
+          "style": { "fontSize": 14, "color": "#FFFFFF", "bgColor": "#E63946" }
+        }
+      ]
+    },
+    {
+      "id": "slide-4",
+      "label": "第一阶段",
+      "type": "title-bullets",
+      "components": [
+        {
+          "id": "s4-title",
+          "type": "title",
+          "text": "2.1 第一阶段（10-11 月）- 回迁初期",
+          "x": 1, "y": 0.8, "w": 8, "h": 0.6,
+          "style": { "fontSize": 22, "bold": true, "color": "#E63946" }
+        },
+        {
+          "id": "s4-bullets",
+          "type": "bullet-list",
+          "items": [
+            "核心关注：新员工技能摸底，首问解决率低位运行",
+            "开展新员工技能摸底评估 → 发现问题清单",
+            "清理场景发现问题 → 建立问题台账",
+            "建立首问解决率监测机制 → 每日跟踪"
+          ],
+          "x": 1, "y": 1.8, "w": 8, "h": 2.5,
+          "style": { "fontSize": 16, "color": "#333333" }
+        }
+      ]
+    },
+    {
+      "id": "slide-5",
+      "label": "第二阶段",
+      "type": "title-bullets",
+      "components": [
+        {
+          "id": "s5-title",
+          "type": "title",
+          "text": "2.2 第二阶段（12-2 月）- 专项攻坚",
+          "x": 1, "y": 0.8, "w": 8, "h": 0.6,
+          "style": { "fontSize": 22, "bold": true, "color": "#E63946" }
+        },
+        {
+          "id": "s5-bullets",
+          "type": "bullet-list",
+          "items": [
+            "核心关注：聚焦账期/话费/合约等痛点，专项攻坚",
+            "聚焦月头月底账期查询痛点 → 专项研究处理流程",
+            "话费疑问处理规范优化 → 减少升级工单",
+            "合约续办流程简化 → 提升在线办结率"
+          ],
+          "x": 1, "y": 1.8, "w": 8, "h": 2.5,
+          "style": { "fontSize": 16, "color": "#333333" }
+        }
+      ]
+    },
+    {
+      "id": "slide-6",
+      "label": "第三阶段",
+      "type": "title-bullets",
+      "components": [
+        {
+          "id": "s6-title",
+          "type": "title",
+          "text": "2.3 第三阶段（3 月至今）- 成效显现",
+          "x": 1, "y": 0.8, "w": 8, "h": 0.6,
+          "style": { "fontSize": 22, "bold": true, "color": "#E63946" }
+        },
+        {
+          "id": "s6-bullets",
+          "type": "bullet-list",
+          "items": [
+            "核心关注：全面赋权 + 脚本优化，成效显现",
+            "省分全面赋权在线办理 → 合约续办、套餐变更、权益流量包",
+            "清理解释脚本优化 → 流量争议、话费争议、停机场景",
+            "员工快速赋能提升 → 首问解决率显著提升"
+          ],
+          "x": 1, "y": 1.8, "w": 8, "h": 2.5,
+          "style": { "fontSize": 16, "color": "#333333" }
+        }
+      ]
+    },
+    {
+      "id": "slide-7",
+      "label": "举措一",
+      "type": "title-bullets",
+      "components": [
+        {
+          "id": "s7-title",
+          "type": "title",
+          "text": "3.1 健全绩效体系",
+          "x": 1, "y": 0.8, "w": 8, "h": 0.6,
+          "style": { "fontSize": 24, "bold": true, "color": "#E63946" }
+        },
+        {
+          "id": "s7-bullets",
+          "type": "bullet-list",
+          "items": [
+            "将在线解决能力纳入考核评价体系 → 激发员工主动性",
+            "薪酬牵引，激发员工提升技能的内生动力 → 形成良性竞争",
+            "萃取优秀案例，定期组织全员学习演练 → 经验快速复制",
+            "推动服务经验快速复制 → 整体能力提升"
+          ],
+          "x": 1, "y": 1.8, "w": 8, "h": 2.5,
+          "style": { "fontSize": 16, "color": "#333333" }
+        }
+      ]
+    },
+    {
+      "id": "slide-8",
+      "label": "举措二",
+      "type": "title-bullets",
+      "components": [
+        {
+          "id": "s8-title",
+          "type": "title",
+          "text": "3.2 梳理重难点业务",
+          "x": 1, "y": 0.8, "w": 8, "h": 0.6,
+          "style": { "fontSize": 24, "bold": true, "color": "#E63946" }
+        },
+        {
+          "id": "s8-bullets",
+          "type": "bullet-list",
+          "items": [
+            "月头月底账期查询 → 专项研究，优化处理流程",
+            "话费疑问 → 简化解释脚本，明确处理规范",
+            "合约续办 → 省分赋权，在线办理",
+            "套餐变更/权益流量包 → 提升在线办结率"
+          ],
+          "x": 1, "y": 1.8, "w": 8, "h": 2.5,
+          "style": { "fontSize": 16, "color": "#333333" }
+        }
+      ]
+    },
+    {
+      "id": "slide-9",
+      "label": "举措三",
+      "type": "title-bullets",
+      "components": [
+        {
+          "id": "s9-title",
+          "type": "title",
+          "text": "3.3 强化质量监督",
+          "x": 1, "y": 0.8, "w": 8, "h": 0.6,
+          "style": { "fontSize": 24, "bold": true, "color": "#E63946" }
+        },
+        {
+          "id": "s9-bullets",
+          "type": "bullet-list",
+          "items": [
+            "质检深入一线 → "接续指导 + 面对面沟通"",
+            "重点人员辅导 → "一对一"靶向辅导",
+            "脚本优化 → 流量争议、话费争议、停机等场景",
+            "沟通技巧提升 → 优化沟通技巧与处理思路"
+          ],
+          "x": 1, "y": 1.8, "w": 8, "h": 2.5,
+          "style": { "fontSize": 16, "color": "#333333" }
+        }
+      ]
+    },
+    {
+      "id": "slide-10",
+      "label": "制度保障",
+      "type": "title-bullets",
+      "components": [
+        {
+          "id": "s10-title",
+          "type": "title",
+          "text": "4. 制度保障",
+          "x": 1, "y": 0.8, "w": 8, "h": 0.6,
+          "style": { "fontSize": 24, "bold": true, "color": "#E63946" }
+        },
+        {
+          "id": "s10-bullets",
+          "type": "bullet-list",
+          "items": [
+            "《（湖北）工单在线解释处理原则》",
+            "  - 明确工单处理标准",
+            "  - 规范在线解释流程",
+            "  - 减少工单升级",
+            "《客服人员服务质量考核管理办法》",
+            "  - 将首问解决率纳入考核",
+            "  - 建立质量评价机制",
+            "  - 激励员工提升技能"
+          ],
+          "x": 1, "y": 1.8, "w": 8, "h": 3,
+          "style": { "fontSize": 16, "color": "#333333" }
+        }
+      ]
+    },
+    {
+      "id": "slide-11",
+      "label": "成效与展望",
+      "type": "title-bullets",
+      "components": [
+        {
+          "id": "s11-title",
+          "type": "title",
+          "text": "5. 成效与展望",
+          "x": 1, "y": 0.8, "w": 8, "h": 0.6,
+          "style": { "fontSize": 24, "bold": true, "color": "#E63946" }
+        },
+        {
+          "id": "s11-bullets",
+          "type": "bullet-list",
+          "items": [
+            "阶段性成效：",
+            "  ✅ 首问解决率显著提升",
+            "  ✅ 提单率明显下降",
+            "  ✅ 员工业务能力快速提升",
+            "  ✅ 客户满意度提高",
+            "下一步计划：",
+            "  📌 持续优化场景脚本",
+            "  📌 扩大赋权范围",
+            "  📌 深化绩效牵引",
+            "  📌 建立长效机制"
+          ],
+          "x": 1, "y": 1.8, "w": 8, "h": 3.5,
+          "style": { "fontSize": 16, "color": "#333333" }
+        }
+      ]
+    },
+    {
+      "id": "slide-12",
+      "label": "结束页",
+      "type": "cover",
+      "layoutVariant": "hero-left",
+      "components": [
+        {
+          "id": "s12-title",
+          "type": "title",
+          "text": "谢谢聆听",
+          "x": 1, "y": 2, "w": 8, "h": 1,
+          "style": { "fontSize": 36, "bold": true, "color": "#E63946" }
+        },
+        {
+          "id": "s12-subtitle",
+          "type": "subtitle",
+          "text": "坚持问题靶向发力 助推热线运营长效向好\n\n湖北联通热线运营中心\n2026 年 4 月",
+          "x": 1, "y": 3.2, "w": 8, "h": 1,
+          "style": { "fontSize": 18, "color": "#333333" }
+        }
+      ]
+    }
+  ]
+}
