@@ -1,1 +1,52 @@
-null
+# 敏感信息（API Keys, Tokens, Secrets）
+.env
+.env.local
+.env.*.local
+*.key
+*.keys
+*secret*
+*credential*
+credentials.json
+service-account.json
+openclaw.json
+
+# 本地配置（可能包含敏感信息）
+config.local.json
+settings.local.json
+
+# 日志文件
+*.log
+logs/
+
+# 临时文件
+tmp/
+temp/
+*.tmp
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE/编辑器
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+.pytest_cache/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 记忆数据库（可选，根据需求决定是否提交）
+# memos-local/memos.db
