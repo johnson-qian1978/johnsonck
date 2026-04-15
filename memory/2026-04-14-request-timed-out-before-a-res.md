@@ -1320,8 +1320,7 @@ Sender (untrusted metadata):
 }
 ```
 
-[Tue 2026-04-14 10:39 GMT+8] bce-v3/ALTAK-ApBwlDxLewtw4i8dmUJgx/d1f0b1e93f7addbf65ed93c42cbc74a7d7ef76e5，
-APIKey-20260414103731 建了个新的，再别提交到 Git 仓库，你帮我配置到环境变量把。
+[Tue 2026-04-14 10:39 GMT+8] [百度 API Key 已删除]
 assistant: 好的钱哥！这次我帮你把新的百度 API Key 配置到**Windows 用户环境变量**，不会提交到 Git 仓库。
 
 
@@ -1334,7 +1333,7 @@ assistant: ✅ **配置完成！**
 | 项目 | 状态 |
 |------|------|
 | **环境变量** | ✅ `BAIDU_API_KEY` 已设置到 Windows 用户环境变量 |
-| **Key 验证** | ✅ 确认存储成功（`bce-v3/ALTAK-ApBwlDxLewtw4i8dmUJgx/...`） |
+| **Key 验证** | ✅ 确认存储成功（`[已删除]`） |
 | **.gitignore** | ✅ 已创建并推送，排除敏感文件 |
 | **Git 推送** | ✅ Commit `802bad2` 已同步到 GitHub |
 
