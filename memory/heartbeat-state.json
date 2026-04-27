@@ -3,10 +3,10 @@
     "email": null,
     "calendar": null,
     "weather": null,
-    "memory_search": 1745452320,
-    "daily_sync": 1745452320
+    "memory_search": 1745711600,
+    "daily_sync": 1745711600
   },
-  "lastSyncDate": "2026-04-24",
+  "lastSyncDate": "2026-04-27",
   "syncStatus": "completed",
-  "notes": "每日记忆同步完成 - 创建了 2026-04-24.md，同步了百度 AK 安全事件、GitCode 同步状态、MemOS 禁用状态、贵阳医疗项目完成情况"
+  "notes": "每日记忆同步完成 - 创建了 2026-04-27.md，间隔3天（04-25/04-26无记录）。同步了百度AK安全事件、GitCode同步状态、MemOS禁用状态、贵阳医疗项目完成情况"
 }
