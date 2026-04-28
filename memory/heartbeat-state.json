@@ -3,10 +3,10 @@
     "email": null,
     "calendar": null,
     "weather": null,
-    "memory_search": 1745711600,
-    "daily_sync": 1745711600
+    "memory_search": 1745794800,
+    "daily_sync": 1745794800
   },
-  "lastSyncDate": "2026-04-27",
+  "lastSyncDate": "2026-04-28",
   "syncStatus": "completed",
-  "notes": "每日记忆同步完成 - 创建了 2026-04-27.md，间隔3天（04-25/04-26无记录）。同步了百度AK安全事件、GitCode同步状态、MemOS禁用状态、贵阳医疗项目完成情况"
+  "notes": "每日记忆同步完成 - 创建了 2026-04-28.md，间隔1天。发现未跟踪目录 skills/xiaohongshu。持续待办：禁用百度旧AK、重启Gateway"
 }
