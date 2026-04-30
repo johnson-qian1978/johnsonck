@@ -8,7 +8,7 @@
 
 ### 🔐 输出物存放规则（最高优先级）
 1. ❌ **禁止将任何输出物放在 C 盘**（桌面、Documents、Downloads 等）
-2. ✅ **必须放 E 盘或项目目录**：`E:\WD\` 或 `E:\AI 生成\`
+2. ✅ **必须放 E 盘或项目目录**：`E:\WD\` 或 `E:\AI生成\`
 3. ⚠️ **每次生成文件前必须检查路径**，确认不是 C 盘
 4. 违反此规则视为严重错误，需要立即纠正
 
@@ -101,7 +101,7 @@
 - 记忆数据库: `C:\Users\27151\.openclaw\memos-local\memos.db`
 - 工作目录: `C:\Users\27151\.openclaw\workspace`
 
-### ⚠️ 记忆自动召回配置（关键！）
+### 🧠 记忆自动召回配置（关键！）
 - **配置路径**: `agents.defaults.memorySearch.enabled`
 - **当前状态**: `true` ✅（已开启）
 - **插件状态**: `memos-local: auto-recall enabled`
@@ -147,10 +147,22 @@
 - 技术: Tauri v2 (Rust + HTML/JS)
 - 大小: ~2.9 MB
 
-### 客服呼叫中心通话时长分析工具 (进行中)
+### 客服呼叫中心通话时长分析工具
 - 位置: `E:\WD\2026-3-27\LTYW`
 - 技术: .NET 8 WinForms
 - 功能: 数据加载、统计分析、LLM生成报告、Word原生图表
+
+### whgh.org 档案系统 BES 代理修复 (2026-04-28 完成)
+- **架构**: 21号BES(443) → 70号BES(9000) → Tomcat(8080/ruoyi-admin)
+- **问题**: 21号 `/prod-api/` 直接转发到 70号:8080，绕过 70号 BES 路由规则
+- **修复**: 改为 `proxy_pass http://172.16.188.70:9000/prod-api/;`
+- **重启**: `kill -HUP 17196`（bws 库路径问题无法用 bws -s reload）
+- **备份**: `/usr/local/bes-webserver/conf/bws.conf.bak_20260428_105136`
+
+### 银行账单生成 (2026-04-29 完成)
+- 3个 Excel 文件按"汉口银行"分拆
+- 输出: `E:\AI生成\银行账单\`
+- 脚本: `E:\AI生成\银行账单\gen_bank_statements.py`
 
 ## DeerFlow 2.0 安装状态（关键！）
 
