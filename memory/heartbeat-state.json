@@ -3,10 +3,10 @@
     "email": null,
     "calendar": null,
     "weather": null,
-    "memory_search": 1746018600,
-    "daily_sync": 1745994000
+    "memory_search": 1776751320,
+    "daily_sync": null
   },
-  "lastSyncDate": "2026-04-30",
-  "syncStatus": "completed",
-  "notes": "8小时记忆搜索已执行。持续待办：禁用百度旧AK、重启Gateway。钱哥今天暂无新任务。"
+  "lastSyncDate": null,
+  "syncStatus": "ok",
+  "notes": "2026-05-09: MemOS Viewer 已禁用（省钱资源），Gateway 重启成功。记忆搜索已完成。"
 }
