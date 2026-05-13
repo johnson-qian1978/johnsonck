@@ -3,10 +3,10 @@
     "email": null,
     "calendar": null,
     "weather": null,
-    "memory_search": 1776751320,
-    "daily_sync": null
+    "memory_search": 1777609572,
+    "daily_sync": 1777609572
   },
-  "lastSyncDate": null,
+  "lastSyncDate": "2026-05-12",
   "syncStatus": "ok",
-  "notes": "2026-05-09: MemOS Viewer 已禁用（省钱资源），Gateway 重启成功。记忆搜索已完成。"
+  "notes": "2026-05-12: 每日同步完成。ITSS 文档更新已记录。记忆搜索已完成。"
 }
