@@ -1,12 +1,12 @@
 {
-    "notes": "2026-05-21: 连续8日无用户交互。memos.db 90.7MB, 最后修改2026-05-21 08:06。Gateway 未运行。",
-    "lastSyncDate": "2026-05-21",
+    "notes": "2026-05-22: 连续9日无用户交互。memos.db 90.7MB, 最后修改2026-05-21 08:06。Gateway未运行。",
+    "lastSyncDate": "2026-05-22",
     "lastChecks": {
         "email": null,
         "weather": null,
         "calendar": null,
-        "memory_search": 1747778400,
-        "daily_sync": 1747778400
+        "memory_search": 1747868400,
+        "daily_sync": 1747868400
     },
     "syncStatus": "ok"
 }
