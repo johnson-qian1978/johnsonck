@@ -1,1 +1,5 @@
-null
+node_modules/
+tmp_*.cjs
+tmp_*.js
+tmp_*.py
+*.log
