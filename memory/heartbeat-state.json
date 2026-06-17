@@ -1,12 +1,14 @@
 {
-    "notes": "2026-06-05 08:40: 心跳记忆恢复 - 会话上下文已刷新",
-    "lastSyncDate": "2026-06-05",
-    "lastChecks": {
-        "email": null,
-        "weather": null,
-        "calendar": null,
-        "memory_search": 1780706400,
-        "daily_sync": 1780620180
-    },
-    "syncStatus": "ok"
+  "lastChecks": {
+    "memos_sync": 1781739000,
+    "memory_search": 1781739000,
+    "updated_at": "2026-06-17T11:30:00+08:00",
+    "memory_sync": 1781739000
+  },
+  "lastMemorySyncReport": {
+    "date": "2026-06-17",
+    "recentKeywordMatches": "none",
+    "latestChunkAt": "2026-04-28 11:51",
+    "dbPath": "C:\\Users\\27151\\.openclaw\\memos-local\\memos.db"
+  }
 }
