@@ -1,14 +1,15 @@
 {
-  "lastChecks": {
-    "memos_sync": 1781739000,
-    "memory_search": 1781739000,
-    "updated_at": "2026-06-17T11:30:00+08:00",
-    "memory_sync": 1781739000
-  },
-  "lastMemorySyncReport": {
-    "date": "2026-06-17",
-    "recentKeywordMatches": "none",
-    "latestChunkAt": "2026-04-28 11:51",
-    "dbPath": "C:\\Users\\27151\\.openclaw\\memos-local\\memos.db"
-  }
+    "lastChecks":  {
+                       "memos_sync":  1781743320,
+                       "memory_search":  1781743320,
+                       "updated_at":  "2026-06-18T17:15:00+08:00",
+                       "memory_sync":  1781743320,
+                       "heartbeat":  1781774100
+                   },
+    "lastMemorySyncReport":  {
+                                 "date":  "2026-06-18",
+                                 "recentKeywordMatches":  "none",
+                                 "latestChunkAt":  "2026-04-28 11:51",
+                                 "dbPath":  "C:\\Users\\27151\\.openclaw\\memos-local\\memos.db"
+                             }
 }
