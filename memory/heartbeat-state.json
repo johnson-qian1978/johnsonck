@@ -1,15 +1,16 @@
 {
-    "lastChecks":  {
-                       "memos_sync":  1781743320,
-                       "memory_search":  1781743320,
-                       "updated_at":  "2026-06-18T17:15:00+08:00",
-                       "memory_sync":  1781743320,
-                       "heartbeat":  1781774100
-                   },
-    "lastMemorySyncReport":  {
-                                 "date":  "2026-06-18",
-                                 "recentKeywordMatches":  "none",
-                                 "latestChunkAt":  "2026-04-28 11:51",
-                                 "dbPath":  "C:\\Users\\27151\\.openclaw\\memos-local\\memos.db"
-                             }
+  "lastChecks": {
+    "memos_sync": 1782865200,
+    "memory_search": 1788426960,
+    "heartbeat": 1788426900,
+    "cron_list": 1788426900
+  },
+  "updated_at": "2026-09-03T17:20:00+08:00",
+  "last_heartbeat": 1788426900,
+  "notes": "memory_search 工具本会话不可用，替代方案：直读 MEMORY.md（已注入上下文）+ 当日/昨日日志（auto-recall 开启中）。2026-09-03 17:15 心跳：重读 MEMORY.md 与 09-02 日志完成记忆恢复；cron 任务列表正常（1 个每日推送任务）。发现 GitHub 公开仓库泄露 GitCode token（USER.md 在 origin/main 中），已上报并建议轮换 token + 仓库转私有，等待用户处理。",
+  "lastMemorySyncReport": {
+    "date": "2026-07-01",
+    "dbPath": "C:\\Users\\27151\\.openclaw\\memos-local\\memos.db",
+    "note": "数据库 40+ 天无更新，每日记忆同步 cron 已禁用。等待用户下次交互。"
+  }
 }
