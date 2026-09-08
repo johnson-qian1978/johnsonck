@@ -1,16 +1,12 @@
 {
   "lastChecks": {
+    "cron_list": 1788858900,
+    "heartbeat": 1788858900,
+    "memory_search": 1788858900,
     "memos_sync": 1782865200,
-    "memory_search": 1788426960,
-    "heartbeat": 1788426900,
-    "cron_list": 1788426900
+    "docker": 1788858900
   },
-  "updated_at": "2026-09-03T17:20:00+08:00",
-  "last_heartbeat": 1788426900,
-  "notes": "memory_search 工具本会话不可用，替代方案：直读 MEMORY.md（已注入上下文）+ 当日/昨日日志（auto-recall 开启中）。2026-09-03 17:15 心跳：重读 MEMORY.md 与 09-02 日志完成记忆恢复；cron 任务列表正常（1 个每日推送任务）。发现 GitHub 公开仓库泄露 GitCode token（USER.md 在 origin/main 中），已上报并建议轮换 token + 仓库转私有，等待用户处理。",
-  "lastMemorySyncReport": {
-    "date": "2026-07-01",
-    "dbPath": "C:\\Users\\27151\\.openclaw\\memos-local\\memos.db",
-    "note": "数据库 40+ 天无更新，每日记忆同步 cron 已禁用。等待用户下次交互。"
-  }
+  "updated_at": "2026-09-08T17:15:00+08:00",
+  "last_heartbeat": 1788858900,
+  "notes": "每日17:15学习日志推送cron触发。5天无用户交互（最后09-03）。Docker Desktop未运行，DeerFlow容器仍无法检查。GitCode token泄露仍待用户处理（09-03已提醒，勿重复轰炸）。无新待办。"
 }
